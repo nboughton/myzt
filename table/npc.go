@@ -30,6 +30,8 @@ func (n NPC) Format(t format.OutputType) string {
 			{"Appearance", n.Appearance},
 			{"Goal", n.Goal},
 			{"Weapon", n.Weapon},
+			{"Mutation", Mutation.Roll()},
+			{"MP", strconv.Itoa(rand.Intn(3) + 1)},
 		}))
 	fmt.Fprint(buf, n.Stats.Format(t))
 

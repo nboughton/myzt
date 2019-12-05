@@ -27,17 +27,16 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// eventCmd represents the event command
-var eventCmd = &cobra.Command{
-	Use:   "event",
-	Short: "Roll for random Ark/Zone events",
+// mutationCmd represents the mutation command
+var mutationCmd = &cobra.Command{
+	Use:   "mutation",
+	Short: "Roll a new mutation",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Fprintf(tw, "Ark\t:\t%s\nZone\t:\t%s\n", table.ArkEvents.Roll(), table.ZoneEvents.Roll())
-		tw.Flush()
+		fmt.Println(table.Mutation.Roll())
 	},
 }
 
 func init() {
-	newCmd.AddCommand(eventCmd)
+	newCmd.AddCommand(mutationCmd)
 }
