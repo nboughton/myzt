@@ -23,6 +23,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/nboughton/myzt/table"
 	"github.com/spf13/cobra"
 )
 
@@ -30,9 +31,9 @@ import (
 var sectorCmd = &cobra.Command{
 	Use:   "sector",
 	Short: "Roll up a new zone sector",
-	Long: ``,
+	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("sector called")
+		fmt.Println(table.SectorEnv.Roll())
 	},
 }
 
