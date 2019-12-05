@@ -22,8 +22,10 @@ package cmd
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"text/tabwriter"
+	"time"
 
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
@@ -35,18 +37,20 @@ var cfgFile string
 // Tabwriter for formatting
 var tw = tabwriter.NewWriter(os.Stdout, 1, 2, 1, ' ', 0)
 
+// All flag identifiers here
+const (
+	flType   = "type"
+	flFormat = "format"
+)
+
 // RootCmd represents the base command when called without any subcommands
 var RootCmd = &cobra.Command{
 	Use:   "myzt",
 	Short: "GM tools and tables for Mutant: Year Zero",
 	Long:  ``,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	//	Run: func(cmd *cobra.Command, args []string) { },
 }
 
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
+// Execute cmd
 func Execute() {
 	if err := RootCmd.Execute(); err != nil {
 		fmt.Println(err)
@@ -55,16 +59,10 @@ func Execute() {
 }
 
 func init() {
+	rand.Seed(time.Now().UnixNano())
 	cobra.OnInitialize(initConfig)
 
-	// Here you will define your flags and configuration settings.
-	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.
 	RootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.myzt.yaml)")
-
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
-	RootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
 // initConfig reads in config file and ENV variables if set.

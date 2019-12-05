@@ -22,14 +22,11 @@ package cmd
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/nboughton/myzt/table"
 	"github.com/nboughton/swnt/content/format"
 	"github.com/spf13/cobra"
-)
-
-const (
-	flType = "type"
 )
 
 // npcCmd represents the npc command
@@ -40,14 +37,24 @@ var npcCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		var (
 			nType, _ = cmd.Flags().GetString(flType)
+			fmc, _   = cmd.Flags().GetString(flFormat)
 		)
 
-		fmt.Fprint(tw, table.NewNPC(format.TEXT, nType))
-		tw.Flush()
+		n := table.NewNPC(nType)
+		for _, f := range strings.Split(fmc, ",") {
+			fID, err := format.Find(f)
+			if err != nil {
+				fmt.Println(err)
+				return
+			}
+
+			fmt.Fprint(tw, n.Format(fID))
+			tw.Flush()
+		}
 	},
 }
 
 func init() {
 	newCmd.AddCommand(npcCmd)
-	npcCmd.Flags().StringP(flType, "t", "No Role", "Select NPC type: Enforcer, Gearhead, Fixer, Stalker")
+	npcCmd.Flags().StringP(flType, "t", "random", "Select NPC type: random, "+strings.Join(table.NPCStats.Roles(), ", "))
 }

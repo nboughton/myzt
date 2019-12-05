@@ -29,11 +29,9 @@ var newCmd = &cobra.Command{
 	Use:   "new",
 	Short: "Roll and print content",
 	Long:  ``,
-	//Run: func(cmd *cobra.Command, args []string) {
-	//	fmt.Println("new called")
-	//},
 }
 
 func init() {
 	RootCmd.AddCommand(newCmd)
+	newCmd.PersistentFlags().StringP(flFormat, "f", "txt", "Set output format. (--format txt,md). Not all commands support this flag.")
 }
