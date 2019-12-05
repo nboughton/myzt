@@ -7,8 +7,8 @@ import (
 )
 
 const (
-	nrna = "%s\nNo Ruins\n%s\nNo Artifact"
-	ra   = "%s\n%s\n%s\n%s"
+	nrna = "%s\nNo Ruins\n%s\nNo Artifact\n%s"
+	ra   = "%s\n%s\n%s\n%s\n%s"
 )
 
 // SectorEnv ironment table
@@ -17,18 +17,18 @@ var SectorEnv = roll.Table{
 	ID:   "sector.environment",
 	Dice: roll.Dice{N: 1, Die: roll.D66},
 	Items: []roll.TableItem{
-		{Match: []int{11, 12}, Text: fmt.Sprintf(nrna, "Thick Woods", ThreatType.Roll())},
-		{Match: []int{13, 14, 15}, Text: fmt.Sprintf(nrna, "Scrublands", ThreatType.Roll())},
-		{Match: []int{16, 21}, Text: fmt.Sprintf(nrna, "Marshlands", ThreatType.Roll())},
-		{Match: []int{22, 23, 24}, Text: fmt.Sprintf(nrna, "Dead Woods", ThreatType.Roll())},
-		{Match: []int{25, 26}, Text: fmt.Sprintf(nrna, "Ash Desert", ThreatType.Roll())},
-		{Match: []int{31}, Text: fmt.Sprintf(nrna, "Huge Crater", ThreatType.Roll())},
-		{Match: []int{32}, Text: fmt.Sprintf(nrna, "Glassified Field", ThreatType.Roll())},
-		{Match: []int{33, 34, 35}, Text: fmt.Sprintf(ra, "Overgrown Ruins", RuinsNormal.Roll(), ThreatType.Roll(), Artifact.Roll())},
-		{Match: []int{36, 41, 42}, Text: fmt.Sprintf(ra, "Crumbling Ruins", RuinsNormal.Roll(), ThreatType.Roll(), Artifact.Roll())},
-		{Match: []int{43, 44, 45, 46, 51}, Text: fmt.Sprintf(ra, "Decayed Ruins", RuinsNormal.Roll(), ThreatType.Roll(), Artifact.Roll())},
-		{Match: []int{52, 53, 54, 55, 56}, Text: fmt.Sprintf(ra, "Unscathed Ruins", RuinsNormal.Roll(), ThreatType.Roll(), Artifact.Roll())},
-		{Match: []int{61, 62, 63, 64}, Text: fmt.Sprintf(ra, "Derelict Industries", RuinsIndustrial.Roll(), ThreatType.Roll(), Artifact.Roll())},
+		{Match: []int{11, 12}, Text: fmt.Sprintf(nrna, "Thick Woods", ThreatType.Roll(), RotLevel.Roll())},
+		{Match: []int{13, 14, 15}, Text: fmt.Sprintf(nrna, "Scrublands", ThreatType.Roll(), RotLevel.Roll())},
+		{Match: []int{16, 21}, Text: fmt.Sprintf(nrna, "Marshlands", ThreatType.Roll(), RotLevel.Roll())},
+		{Match: []int{22, 23, 24}, Text: fmt.Sprintf(nrna, "Dead Woods", ThreatType.Roll(), RotLevel.Roll())},
+		{Match: []int{25, 26}, Text: fmt.Sprintf(nrna, "Ash Desert", ThreatType.Roll(), RotLevel.Roll())},
+		{Match: []int{31}, Text: fmt.Sprintf(nrna, "Huge Crater", ThreatType.Roll(), RotLevel.Roll())},
+		{Match: []int{32}, Text: fmt.Sprintf(nrna, "Glassified Field", ThreatType.Roll(), RotLevel.Roll())},
+		{Match: []int{33, 34, 35}, Text: fmt.Sprintf(ra, "Overgrown Ruins", RuinsNormal.Roll(), ThreatType.Roll(), Artifact.Roll(), RotLevel.Roll())},
+		{Match: []int{36, 41, 42}, Text: fmt.Sprintf(ra, "Crumbling Ruins", RuinsNormal.Roll(), ThreatType.Roll(), Artifact.Roll(), RotLevel.Roll())},
+		{Match: []int{43, 44, 45, 46, 51}, Text: fmt.Sprintf(ra, "Decayed Ruins", RuinsNormal.Roll(), ThreatType.Roll(), Artifact.Roll(), RotLevel.Roll())},
+		{Match: []int{52, 53, 54, 55, 56}, Text: fmt.Sprintf(ra, "Unscathed Ruins", RuinsNormal.Roll(), ThreatType.Roll(), Artifact.Roll(), RotLevel.Roll())},
+		{Match: []int{61, 62, 63, 64}, Text: fmt.Sprintf(ra, "Derelict Industries", RuinsIndustrial.Roll(), ThreatType.Roll(), Artifact.Roll(), RotLevel.Roll())},
 		{Match: []int{65, 66}, Text: "Settlement"},
 	},
 }
@@ -99,9 +99,9 @@ var RotLevel = roll.Table{
 	ID:   "sector.rotLevel",
 	Dice: roll.Dice{N: 1, Die: roll.D66},
 	Items: []roll.TableItem{
-		{Match: []int{11, 12}, Text: "0\nRot Oasis. The PCs are safe from the Rot here."},
-		{Match: []int{13, 14, 15, 16, 21, 22, 23, 24, 25, 26, 31, 32, 33, 34, 35, 36, 41, 42, 43, 44, 45, 46, 51, 52, 53, 54, 55}, Text: "1\nWeak Rot. The PCs suffer one Rot Point per day spent in such sectors."},
-		{Match: []int{56, 61, 62, 63, 64, 65, 66}, Text: "2\nRot-Heavy Area. The PCs suffer one Rot Point per hour."},
+		{Match: []int{11, 12}, Text: "0 - Rot Oasis. The PCs are safe from the Rot here."},
+		{Match: []int{13, 14, 15, 16, 21, 22, 23, 24, 25, 26, 31, 32, 33, 34, 35, 36, 41, 42, 43, 44, 45, 46, 51, 52, 53, 54, 55}, Text: "1 - Weak Rot. The PCs suffer one Rot Point per day spent in such sectors."},
+		{Match: []int{56, 61, 62, 63, 64, 65, 66}, Text: "2 - Rot-Heavy Area. The PCs suffer one Rot Point per hour."},
 	},
 }
 
