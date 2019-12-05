@@ -4,7 +4,7 @@ go 1.13
 
 require (
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/nboughton/go-roll v0.0.12
+	github.com/nboughton/go-roll v0.0.15
 	github.com/nboughton/swnt v0.7.5
 	github.com/pelletier/go-toml v1.6.0 // indirect
 	github.com/spf13/afero v1.2.2 // indirect

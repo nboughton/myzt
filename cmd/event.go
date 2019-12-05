@@ -23,20 +23,21 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/nboughton/go-roll"
+	"github.com/nboughton/myzt/table"
 	"github.com/spf13/cobra"
 )
 
-// d66Cmd represents the d66 command
-var d66Cmd = &cobra.Command{
-	Use:   "d66",
-	Short: "Roll d66",
+// eventCmd represents the event command
+var eventCmd = &cobra.Command{
+	Use:   "event",
+	Short: "",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(roll.D66.Roll().Value)
+		fmt.Fprintf(tw, "Ark\t:\t%s\nZone\t:\t%s\n", table.ArkEvents.Roll(), table.ZoneEvents.Roll())
+		tw.Flush()
 	},
 }
 
 func init() {
-	rollCmd.AddCommand(d66Cmd)
+	newCmd.AddCommand(eventCmd)
 }

@@ -23,7 +23,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/nboughton/myzt/dice"
+	"github.com/nboughton/go-roll"
 	"github.com/spf13/cobra"
 )
 
@@ -33,7 +33,7 @@ var d666Cmd = &cobra.Command{
 	Short: "Roll d666",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(dice.D666())
+		fmt.Println(roll.D666.Roll().Value)
 	},
 }
 

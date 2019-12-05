@@ -69,8 +69,8 @@ github.com/mitchellh/go-homedir v1.1.0/go.mod h1:SfyaCUpYCn1Vlf4IUYiD9fPX4A5wJrk
 github.com/mitchellh/mapstructure v1.1.2 h1:fmNYVwqnSfB9mZU6OS2O6GsXM+wcskZDuKQzvN1EDeE=
 github.com/mitchellh/mapstructure v1.1.2/go.mod h1:FVVH3fgwuzCH5S8UJGiWEs2h04kUh9fWfEaFds41c1Y=
 github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223/go.mod h1:qRWi+5nqEBWmkhHvq77mSJWrCKwh8bxhgT7d/eI7P4U=
-github.com/nboughton/go-roll v0.0.12 h1:VzpAh2+eFOoYlKh+HcqSmYY95OLqCPazQLMWcyYLQk4=
-github.com/nboughton/go-roll v0.0.12/go.mod h1:mSQ2rOs2EeWgigpQyIHHtKoSamk4tf6kDtTUf9lKRGw=
+github.com/nboughton/go-roll v0.0.15 h1:PW8mJw1iEJr8noa87F32tgsM+rYiqU0nzsKjHBOV/9g=
+github.com/nboughton/go-roll v0.0.15/go.mod h1:mSQ2rOs2EeWgigpQyIHHtKoSamk4tf6kDtTUf9lKRGw=
 github.com/nboughton/swnt v0.7.5 h1:Yos+T2E1soh7P+OXgLAB14JHnKHKl8wVs6QJcCzotKc=
 github.com/nboughton/swnt v0.7.5/go.mod h1:WEZiG4OES0wTdiDh6d+bUgL8h8lK2Pk4m15n39XM1EE=
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
