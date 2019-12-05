@@ -5,7 +5,7 @@ import "github.com/nboughton/go-roll"
 // ArkEvents to roll for
 var ArkEvents = roll.Table{
 	Name: "Ark Events",
-	Dice: roll.Dice{1, roll.D66},
+	Dice: roll.Dice{N: 1, Die: roll.D66},
 	Items: []roll.TableItem{
 		{Match: []int{11, 12, 13, 14}, Text: "Danger Ahead"},
 		{Match: []int{15, 16, 21, 22}, Text: "Fight over projects"},
@@ -23,7 +23,7 @@ var ArkEvents = roll.Table{
 // ZoneEvents to roll for
 var ZoneEvents = roll.Table{
 	Name: "Zone Events",
-	Dice: roll.Dice{1, roll.D66},
+	Dice: roll.Dice{N: 1, Die: roll.D66},
 	Items: []roll.TableItem{
 		{Match: []int{11, 12, 13, 14}, Text: "A beacon in the distance"},
 		{Match: []int{15, 16, 21, 22}, Text: "Danger ahead"},

@@ -11,33 +11,6 @@ import (
 	"github.com/nboughton/swnt/content/format"
 )
 
-// NPC type
-type NPC struct {
-	Stats      npcStatBlock
-	Name       string
-	Appearance string
-	Goal       string
-	Weapon     string
-}
-
-// Format npc output
-func (n NPC) Format(t format.OutputType) string {
-	buf := new(bytes.Buffer)
-
-	fmt.Fprintln(buf, format.Table(t, []string{},
-		[][]string{
-			{n.Name, n.Stats.Role},
-			{"Appearance", n.Appearance},
-			{"Goal", n.Goal},
-			{"Weapon", n.Weapon},
-			{"Mutation", Mutation.Roll()},
-			{"MP", strconv.Itoa(rand.Intn(3) + 1)},
-		}))
-	fmt.Fprint(buf, n.Stats.Format(t))
-
-	return buf.String()
-}
-
 // NewNPC roll an npcGen table
 func NewNPC(npcType string) NPC {
 	var n NPC
@@ -120,6 +93,33 @@ func NewNPC(npcType string) NPC {
 	}
 
 	return n
+}
+
+// NPC type
+type NPC struct {
+	Stats      npcStatBlock
+	Name       string
+	Appearance string
+	Goal       string
+	Weapon     string
+}
+
+// Format npc output
+func (n NPC) Format(t format.OutputType) string {
+	buf := new(bytes.Buffer)
+
+	fmt.Fprintln(buf, format.Table(t, []string{},
+		[][]string{
+			{n.Name, n.Stats.Role},
+			{"Appearance", n.Appearance},
+			{"Goal", n.Goal},
+			{"Weapon", n.Weapon},
+			{"Mutation", Mutation.Roll()},
+			{"MP", strconv.Itoa(rand.Intn(3) + 1)},
+		}))
+	fmt.Fprint(buf, n.Stats.Format(t))
+
+	return buf.String()
 }
 
 type npcStatBlock struct {
