@@ -33,7 +33,8 @@ var sectorCmd = &cobra.Command{
 	Short: "Roll up a new zone sector",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(table.SectorEnv.Roll())
+		fmt.Fprintln(tw, table.SectorEnv.Roll())
+		tw.Flush()
 	},
 }
 

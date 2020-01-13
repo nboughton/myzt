@@ -7,8 +7,8 @@ import (
 )
 
 const (
-	nrna = "%s\nNo Ruins\n%s\nNo Artifact\n%s"
-	ra   = "%s\n%s\n%s\n%s\n%s"
+	nrna = "Terrain\t:\t%s\nRuins\t:\tNone\nThreat\t:\t%s\nArtifact\t:\tNone\nRot Level\t:\t%s\n"
+	ra   = "Terrain\t:\t%s\nRuins\t:\t%s\nThreat\t:\t%s\nArtifact\t:\t%s\nRot Level\t:\t%s\n"
 )
 
 // SectorEnv ironment table
